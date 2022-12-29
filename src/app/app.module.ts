@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { GridModule, PagerModule } from '@syncfusion/ej2-angular-grids';
+import { SharedModule } from './shared/shared.module';
+import { ButtonModule } from '@syncfusion/ej2-angular-buttons';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { GridModule, PagerModule } from '@syncfusion/ej2-angular-grids';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GridModule, PagerModule
+    SharedModule,
+    GridModule, PagerModule,
+    ButtonModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
