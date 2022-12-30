@@ -8,13 +8,14 @@ import { GridModule, PagerModule } from '@syncfusion/ej2-angular-grids';
 import { SharedModule } from './shared/shared.module';
 import { ButtonModule, CheckBoxModule } from '@syncfusion/ej2-angular-buttons';
 import { CommonModule } from '@angular/common';
-import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
-import { MultiSelectModule } from '@syncfusion/ej2-angular-dropdowns';
+import { DatePickerModule, MaskedDateTimeService } from '@syncfusion/ej2-angular-calendars';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
@@ -27,10 +28,9 @@ import { MultiSelectModule } from '@syncfusion/ej2-angular-dropdowns';
     PagerModule,
     ButtonModule,
     DatePickerModule,
-    CheckBoxModule,
-    MultiSelectModule  
+    CheckBoxModule
   ],
-  providers: [],
+  providers: [MaskedDateTimeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 import { FormValidators } from '@syncfusion/ej2-angular-inputs';
+import { UserService } from 'src/app/services/user-service/user.service';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +11,15 @@ import { FormValidators } from '@syncfusion/ej2-angular-inputs';
 })
 export class HomeComponent {
 
-  studentSubjects = [  
+  public reactForm: FormGroup;
+  public dateValue: Date = new Date();
+  public minDate: Date = new Date();
+  public studentSubjects = [  
     { value: 'matematicas', name: 'Matemáticas' },
     { value: 'ingles', name: 'Inglés' }
   ];
-  reactForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder ) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService ) {
     this.reactForm = new FormGroup({
       'name': new FormControl('', [FormValidators.required]),
       'surname': new FormControl('', [FormValidators.required]),
@@ -36,6 +39,7 @@ export class HomeComponent {
 
 
   ngOnInit(): void {
+    this.reactForm.reset();
     let formId: HTMLElement = <HTMLElement>document.getElementById('formId');
     document.getElementById('formId')?.addEventListener(
       'submit',
@@ -51,6 +55,8 @@ export class HomeComponent {
           this.reactForm.value.subjects = [];
           this.reactForm.value.subjects.push(subjectsChecked);
           alert('Alumno registrado!');
+          console.log('values', this.reactForm.value);
+          this.userService.setNewUser(this.reactForm.value);
           this.reactForm.reset();
         } else {
             Object.keys(this.reactForm.controls).forEach(field => {
