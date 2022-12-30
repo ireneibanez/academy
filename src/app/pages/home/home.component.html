@@ -5,7 +5,7 @@
             <span>Nuevo usuario</span>
         </div>
 
-        <form id="formId" [formGroup]="reactForm" #formDir="ngForm" class="form-horizontal" novalidate="">
+        <form id="formId" [formGroup]="reactForm" class="form-horizontal">
 
             <div class="form-group">
                 <div class="e-float-input">
@@ -47,11 +47,42 @@
             </div>
 
             <div class="form-group">
+                <div class="e-float-input e-float-text date-label">Asignaturas</div>  
+                <div formArrayName="subjects">
+                    <ul class="checkbox-list" *ngFor="let subject of studentSubjects; index as i">
+                        <li><ejs-checkbox [formControlName]="i" [value]="subject.value" [label]="subject.name" [checked]="false"></ejs-checkbox></li>
+                    </ul>
+                </div>   
+
+                <div *ngIf="subjects?.errors">
+                    <div *ngIf="subjects?.errors?.['required']" class="e-error">
+                        Debe seleccionar al menos una asignatura para continuar.
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="form-group">
+                <div class="e-float-input e-float-text date-label">Asignaturas</div>  
+                <ejs-multiselect id='multiselectelement' [dataSource]='subjects' [fields]='fields' (filtering)='onFiltering($event)' [mode]='mode' [placeholder]='placeholder'></ejs-multiselect>
+                <div formArrayName="subjects">
+                    <ul class="checkbox-list" *ngFor="let subject of studentSubjects; index as i">
+                        <li><ejs-checkbox [formControlName]="i" [label]="subject.name"></ejs-checkbox></li>
+                    </ul>
+                </div>   
+
+                <div *ngIf="subjects?.errors">
+                    <div *ngIf="subjects?.errors?.['required']" class="e-error">
+                        Debe seleccionar al menos una asignatura para continuar.
+                    </div>
+                </div>
+            </div> -->
+            
+            <div class="form-group">
                 <div class="e-float-input e-float-text date-label">Fecha de inicio</div>
                 <ejs-datepicker id="date" formControlName="date"></ejs-datepicker>
                 <div *ngIf="date?.errors">
                     <div *ngIf="date?.errors?.['date'] && date?.touched" class="e-error">
-                        Introduce una fecha válida.
+                        Introduce una fecha de inicio válida.
                     </div>
                 </div>
             </div>
