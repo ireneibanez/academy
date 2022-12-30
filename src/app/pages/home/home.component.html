@@ -1,0 +1,99 @@
+
+<div class="col-lg-12 control-section">
+    <div class="content-wrapper" style="margin-bottom: 25px;">
+        <div class="formtitle">
+            <span>Nuevo usuario</span>
+        </div>
+
+        <form id="formId" [formGroup]="reactForm" class="form-horizontal">
+
+            <div class="form-group">
+                <div class="e-float-input">
+                    <input id="name" type="text" formControlName="name">
+                    <span class="e-float-line"></span>
+                    <label for="name" class="e-float-text">Nombre</label>
+                </div>
+                <div *ngIf="name?.errors">
+                    <div *ngIf="name?.errors?.['required'] && name?.touched" class="e-error">
+                        Este campo es obligatorio.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="e-float-input">
+                    <input id="surname" type="text" formControlName="surname">
+                    <span class="e-float-line"></span>
+                    <label for="surname" class="e-float-text">Apellido</label>
+                </div>
+                <div *ngIf="surname?.errors">
+                    <div *ngIf="surname?.errors?.['required'] && surname?.touched" class="e-error">
+                        Este campo es obligatorio.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="e-float-input">
+                    <input id="email" type="text" formControlName="email">
+                    <span class="e-float-line"></span>
+                    <label for="email" class="e-float-text">Email</label>
+                </div>
+                <div *ngIf="email?.errors">
+                    <div *ngIf="email?.errors?.['email'] && email?.touched" class="e-error">
+                        Por favor, introduzca una dirección de correo válida.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="e-float-input e-float-text date-label">Asignaturas</div>  
+                <div formArrayName="subjects">
+                    <ul class="checkbox-list" *ngFor="let subject of studentSubjects; index as i">
+                        <li><ejs-checkbox [formControlName]="i" [value]="subject.value" [label]="subject.name" [checked]="false"></ejs-checkbox></li>
+                    </ul>
+                </div>   
+
+                <div *ngIf="subjects?.errors">
+                    <div *ngIf="subjects?.errors?.['required']" class="e-error">
+                        Debe seleccionar al menos una asignatura para continuar.
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="form-group">
+                <div class="e-float-input e-float-text date-label">Asignaturas</div>  
+                <ejs-multiselect id='multiselectelement' [dataSource]='subjects' [fields]='fields' (filtering)='onFiltering($event)' [mode]='mode' [placeholder]='placeholder'></ejs-multiselect>
+                <div formArrayName="subjects">
+                    <ul class="checkbox-list" *ngFor="let subject of studentSubjects; index as i">
+                        <li><ejs-checkbox [formControlName]="i" [label]="subject.name"></ejs-checkbox></li>
+                    </ul>
+                </div>   
+
+                <div *ngIf="subjects?.errors">
+                    <div *ngIf="subjects?.errors?.['required']" class="e-error">
+                        Debe seleccionar al menos una asignatura para continuar.
+                    </div>
+                </div>
+            </div> -->
+            
+            <div class="form-group">
+                <div class="e-float-input e-float-text date-label">Fecha de inicio</div>
+                <ejs-datepicker id="date" formControlName="date"></ejs-datepicker>
+                <div *ngIf="date?.errors">
+                    <div *ngIf="date?.errors?.['date'] && date?.touched" class="e-error">
+                        Introduce una fecha de inicio válida.
+                    </div>
+                </div>
+            </div>
+
+            <div class="row center">
+                <button id="validateSubmit" ejs-button cssClass="e-primary">Registrar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
