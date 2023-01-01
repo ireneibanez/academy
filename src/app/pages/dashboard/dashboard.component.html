@@ -24,20 +24,12 @@
                     <e-columns>
                         <e-column field= "name" headerText="Nombre" width="200"></e-column>
                         <e-column field= "surname" headerText="Apellidos" width="200"></e-column>
-                        <e-column field= "gender" headerText="Género" width="100"></e-column>
+                        <e-column field= "gender" headerText="Género" editType= 'dropdownedit'
+                        [edit]='genderParams' width="100"></e-column>
                         <e-column field= "email" headerText="E-mail" width="250"></e-column>
-                        <e-column field= "date" headerText="Fecha de comienzo" width="200" format="yMd"></e-column>
-                        <e-column field= "subjects" headerText="Asignaturas matriculadas" width="200"></e-column>
+                        <e-column field= "date" headerText="Fecha de comienzo" width="200" editType= 'datepickeredit' [edit]='dpParams' format="dd-MMM-yy"></e-column>
+                        <e-column field= "subjects" headerText="Asignaturas matriculadas"  type='string' [edit]='dsParams' width="200"></e-column>
                     </e-columns>
-                    <e-aggregates>
-                        <e-aggregate>
-                            <e-columns>
-                                <e-column type="Sum" field="Asignaturas matriculadas" format="C2">
-                                    <ng-template #footerTemplate let-data>Sum: {{data.Sum}}</ng-template>
-                                </e-column>
-                            </e-columns>
-                        </e-aggregate>
-                    </e-aggregates>
                 </ejs-grid>
             </div>
         </div>
@@ -49,20 +41,12 @@
                 <e-columns>
                     <e-column field= "name" headerText="Nombre" width="200"></e-column>
                     <e-column field= "surname" headerText="Apellidos" width="200"></e-column>
-                    <e-column field= "gender" headerText="Género" width="100"></e-column>
+                    <e-column field= "gender" headerText="Género" editType='dropdownedit'
+                    [edit]='genderParams'  width="100"></e-column>
                     <e-column field= "email" headerText="E-mail" width="250"></e-column>
-                    <e-column field= "date" headerText="Fecha de comienzo" width="200" format="yMd"></e-column>
-                    <e-column field= "subjects" headerText="Asignaturas matriculadas" width="200"></e-column>
+                    <e-column field= "date" headerText="Fecha de comienzo" editType= 'datepickeredit' [edit]='dpParams' width="200" format="dd-MMM-yy"></e-column>
+                    <e-column field= "subjects" headerText="Asignaturas matriculadas" type='string' [edit]='dsParams' width="200"></e-column>
                 </e-columns>
-                <e-aggregates>
-                    <e-aggregate>
-                        <e-columns>
-                            <e-column type="Sum" field="Asignaturas matriculadas" format="C2">
-                                <ng-template #footerTemplate let-data>Sum: {{data.Sum}}</ng-template>
-                            </e-column>
-                        </e-columns>
-                    </e-aggregate>
-                </e-aggregates>
             </ejs-grid>
         </div>
     </div>

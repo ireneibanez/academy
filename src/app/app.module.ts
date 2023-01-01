@@ -35,7 +35,7 @@ import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
     GridModule,
     DropDownListModule 
   ],
-  providers: [MaskedDateTimeService, EditService, ToolbarService ],
+  providers: [MaskedDateTimeService, EditService, ToolbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

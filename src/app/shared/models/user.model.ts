@@ -4,5 +4,5 @@ export interface User {
     email: string;
     gender: string;
     date: Date;
-    subjects: string[];
+    subjects: any;
 }

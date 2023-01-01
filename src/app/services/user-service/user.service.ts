@@ -14,41 +14,41 @@ export class UserService {
       name: 'María',
       surname: 'López',
       email: 'maria@correo.com',
-      gender: 'mujer',
+      gender: 'Mujer',
       date: new Date(),
-      subjects: ['matematicas', 'ingles']
+      subjects: ['Matemáticas', 'Inglés']
     },
     {
       name: 'Vanessa',
       surname: 'Sánchez',
       email: 'vane@correo.com',
-      gender: 'mujer',
+      gender: 'Mujer',
       date: new Date(),
-      subjects: ['ingles']
+      subjects: ['Inglés']
     },
     {
       name: 'Laura',
       surname: 'Martínez',
       email: 'lau@correo.com',
-      gender: 'mujer',
+      gender: 'Mujer',
       date: new Date(),
-      subjects: ['matematicas']
+      subjects: ['Matemáticas']
     },
     {
       name: 'Pablo',
       surname: 'López',
       email: 'pa@correo.com',
-      gender: 'hombre',
+      gender: 'Hombre',
       date: new Date(),
-      subjects: ['matematicas', 'ingles']
+      subjects: ['Matemáticas']
     },
     {
       name: 'Paqui',
       surname: 'López',
       email: 'paqui@correo.com',
-      gender: 'mujer',
+      gender: 'Mujer',
       date: new Date(),
-      subjects: ['matematicas', 'ingles']
+      subjects: ['Matemáticas', 'Inglés']
     }
   ];
 
@@ -66,5 +66,7 @@ export class UserService {
   setGender(name: string): Observable<any> {
     return this.http.get('https://api.genderize.io?name='+`${name}`)
   }
+
+
 
 }
