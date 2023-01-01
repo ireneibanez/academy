@@ -36,6 +36,8 @@
     "@syncfusion/ej2-navigations": "^20.4.40",
     "@syncfusion/ej2-popups": "^20.4.40",
     "@syncfusion/ej2-splitbuttons": "^20.4.40",
+    "install": "^0.13.0",
+    "npm": "^9.2.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

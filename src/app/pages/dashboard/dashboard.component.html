@@ -1,1 +1,91 @@
-<p>dashboard works!</p>
+<!-- <div class="control-section">
+    <ejs-grid [dataSource]="data" allowPaging= "true" [pageSettings]="pageOptions" allowSorting= "true" [editSettings]="editSettings" [toolbar]="toolbar">
+        <e-columns>
+            <e-column field= "name" headerText="Nombre" width="200"></e-column>
+            <e-column field= "surname" headerText="Apellidos" width="200"></e-column>
+            <e-column field= "gender" headerText="Género" width="100"></e-column>
+            <e-column field= "email" headerText="E-mail" width="250"></e-column>
+            <e-column field= "date" headerText="Fecha de comienzo" width="200" format="yMd"></e-column>
+            <e-column field= "subjects" headerText="Asignaturas matriculadas" width="200"></e-column>
+        </e-columns>
+    </ejs-grid>
+</div> -->
+
+
+
+<div class="control-section">
+    <div class="col-lg-9 e-bigger e-adaptive-demo">
+        <div *ngIf="isDeskTop" class="e-mobile-layout">
+            <div class="e-mobile-content">
+                <ejs-grid #adaptive id="adaptivebrowser" [dataSource]='data' enableAdaptiveUI='true'
+                    [rowRenderingMode]="rowMode" height='100%' allowPaging='true' allowFiltering='true'
+                    allowSorting='true' [pageSettings]='pageSettings' [editSettings]='editSettings'
+                    [filterSettings]='filterSettings' [toolbar]='toolbar' (load)='onLoad()'>
+                    <e-columns>
+                        <e-column field= "name" headerText="Nombre" width="200"></e-column>
+                        <e-column field= "surname" headerText="Apellidos" width="200"></e-column>
+                        <e-column field= "gender" headerText="Género" width="100"></e-column>
+                        <e-column field= "email" headerText="E-mail" width="250"></e-column>
+                        <e-column field= "date" headerText="Fecha de comienzo" width="200" format="yMd"></e-column>
+                        <e-column field= "subjects" headerText="Asignaturas matriculadas" width="200"></e-column>
+                    </e-columns>
+                    <e-aggregates>
+                        <e-aggregate>
+                            <e-columns>
+                                <e-column type="Sum" field="Asignaturas matriculadas" format="C2">
+                                    <ng-template #footerTemplate let-data>Sum: {{data.Sum}}</ng-template>
+                                </e-column>
+                            </e-columns>
+                        </e-aggregate>
+                    </e-aggregates>
+                </ejs-grid>
+            </div>
+        </div>
+        <div *ngIf="!isDeskTop" class="e-default">
+            <ejs-grid #adaptive id="adaptivedevice" [dataSource]='data' enableAdaptiveUI='true'
+                [rowRenderingMode]="rowMode" height='100%' allowPaging='true' allowFiltering='true' allowSorting='true'
+                [pageSettings]='pageSettings' [editSettings]='editSettings' [filterSettings]='filterSettings'
+                [toolbar]='toolbar' (load)='onLoad()'>
+                <e-columns>
+                    <e-column field= "name" headerText="Nombre" width="200"></e-column>
+                    <e-column field= "surname" headerText="Apellidos" width="200"></e-column>
+                    <e-column field= "gender" headerText="Género" width="100"></e-column>
+                    <e-column field= "email" headerText="E-mail" width="250"></e-column>
+                    <e-column field= "date" headerText="Fecha de comienzo" width="200" format="yMd"></e-column>
+                    <e-column field= "subjects" headerText="Asignaturas matriculadas" width="200"></e-column>
+                </e-columns>
+                <e-aggregates>
+                    <e-aggregate>
+                        <e-columns>
+                            <e-column type="Sum" field="Asignaturas matriculadas" format="C2">
+                                <ng-template #footerTemplate let-data>Sum: {{data.Sum}}</ng-template>
+                            </e-column>
+                        </e-columns>
+                    </e-aggregate>
+                </e-aggregates>
+            </ejs-grid>
+        </div>
+    </div>
+
+
+    <div class="col-lg-3 property-section">
+        <div class="property-panel-section">
+            <div class="property-panel-header">Properties</div>
+            <div class="property-panel-content">
+                <table id="property" title="Properties" class="property-panel-table" style="width: 100%">
+                    <tr>
+                        <td style="width: 100%">
+                            <div style="padding-top: 7px">Enable horizontal row mode</div>
+                        </td>
+                        <td style="width: 50%;padding-right: 10px">
+                            <div id='typeddl'>
+                                <ejs-checkbox #checkbox (change)="changeHandler($event)"></ejs-checkbox>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
