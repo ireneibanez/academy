@@ -5,6 +5,7 @@ import { User } from 'src/app/shared/models/user.model';
 import { UserService } from 'src/app/services/user-service/user.service';
 import { MultiSelect } from '@syncfusion/ej2-angular-dropdowns';
 import { DataManager, Query } from '@syncfusion/ej2-data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,8 @@ import { DataManager, Query } from '@syncfusion/ej2-data';
 
 export class DashboardComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router
+  ) { }
 
   @ViewChild('adaptive')
   public grid!: GridComponent;
@@ -108,10 +110,13 @@ export class DashboardComponent implements OnInit {
     if ((args.requestType === 'beginEdit' || args.requestType === 'add')) {
       const dialog = args.dialog;
       const name = 'Nombre';
-      dialog.showCloseIcon = false;
+      dialog.showCloseIcon = true;
       dialog.height = 400;
-      // change the header of the dialog
-      dialog.header = args.requestType === 'beginEdit' ? 'Editar usuario: ' + args.rowData['name'] : 'Nuevo usuario';
+      dialog.header = args.requestType === 'beginEdit' ? 'Editar usuario: ' + args.rowData['name'] : this.redirectToHome();
     }
+  }
+
+  private redirectToHome(): void {
+    this.router.navigate(['/home']);
   }
 }
