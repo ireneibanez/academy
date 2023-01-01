@@ -22,18 +22,18 @@ import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
   imports: [
     CommonModule,
     BrowserModule,
-    FormsModule, 
-    ReactiveFormsModule, 
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
-    GridModule, 
+    GridModule,
     PagerModule,
     ButtonModule,
     DatePickerModule,
     CheckBoxModule,
     GridModule,
-    DropDownListModule 
+    DropDownListModule
   ],
   providers: [MaskedDateTimeService, EditService, ToolbarService],
   bootstrap: [AppComponent]

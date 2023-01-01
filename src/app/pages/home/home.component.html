@@ -74,7 +74,7 @@
             
             <div class="form-group">
                 <div class="e-float-input e-float-text date-label">Fecha de inicio</div>
-                <ejs-datepicker id="date" formControlName="date" [value]="dateValue" [min]="minDate" [enableMask]="true" format="dd-MMM-yy" start="Year"></ejs-datepicker>
+                <ejs-datepicker id="date" formControlName="date" [value]="dateValue" [min]="minDate" [enableMask]="true" format="dd-MM-yy" start="Year"></ejs-datepicker>
                 <div *ngIf="date?.errors">
                     <div *ngIf="date?.errors?.['date'] && date?.touched" class="e-error">
                         Introduce una fecha de inicio válida.

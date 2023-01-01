@@ -52,7 +52,7 @@ export class UserService {
     }
   ];
 
-  constructor(private http: HttpClient ) {}
+  constructor(private http: HttpClient) { }
 
   getUsersRegisteredInfo(): User[] {
     return this.usersRegistered;
@@ -64,7 +64,7 @@ export class UserService {
   }
 
   setGender(name: string): Observable<any> {
-    return this.http.get('https://api.genderize.io?name='+`${name}`)
+    return this.http.get('https://api.genderize.io?name=' + `${name}`)
   }
 
 
