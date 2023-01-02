@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild, Inject, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Browser } from '@syncfusion/ej2-base';
-import { PageService, FilterService, SortService, AggregateService, EditService, GridComponent, DataStateChangeEventArgs, EditSettingsModel, IEditCell, TimePickerEditCell } from '@syncfusion/ej2-angular-grids';
+import { FilterService, SortService, AggregateService, EditService, GridComponent, DataStateChangeEventArgs, IEditCell, EditSettingsModel } from '@syncfusion/ej2-angular-grids';
 import { User } from 'src/app/shared/models/user.model';
 import { UserService } from 'src/app/services/user-service/user.service';
 import { MultiSelect } from '@syncfusion/ej2-angular-dropdowns';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  providers: [PageService, FilterService, SortService, AggregateService, EditService],
+  providers: [ FilterService, SortService, AggregateService, EditService],
   encapsulation: ViewEncapsulation.None
 })
 
@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
   public data: User[] = [];
   public pageOptions: Object = { pageSize: 5, pageCount: 4 };
   public state: DataStateChangeEventArgs = { skip: 0, take: 10 };
-  public editSettings: Object = {};
+  public editSettings: EditSettingsModel = {};
   public toolbar: string[] = [];
   public orderidrules: Object = {};
   public customeridrules: Object = {};
@@ -69,7 +69,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = this.userService.getUsersRegisteredInfo();
-    this.editSettings = { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Dialog' };
+    this.editSettings = { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Dialog', allowEditOnDblClick: true };
     this.toolbar = ['Add', 'Edit', 'Delete', 'Search'];
     this.orderidrules = { required: true, number: true };
     this.customeridrules = { required: true };
@@ -110,10 +110,10 @@ export class DashboardComponent implements OnInit {
     if ((args.requestType === 'beginEdit' || args.requestType === 'add')) {
       const dialog = args.dialog;
       const name = 'Nombre';
-      dialog.showCloseIcon = false;
-      console.log('dialog', dialog)
+      dialog.showCloseIcon = true;
       dialog.height = 400;
       dialog.header = args.requestType === 'beginEdit' ? 'Editar usuario: ' + args.rowData['name'] : this.redirectToHome();
+      
     }
   }
 

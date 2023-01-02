@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DropDownListComponent } from '@syncfusion/ej2-angular-dropdowns';
@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user-service/user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   @ViewChild('element') element: any
   @ViewChild('dropdownlistlelement')
@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
   public genders: string[] = ['Hombre', 'Mujer'];
   private genderSelectedByUser: string = '';
   public toastObj!: any;
-
 
   constructor(
     private formBuilder: FormBuilder,
@@ -51,6 +50,10 @@ export class HomeComponent implements OnInit {
       next: () => this.successToast(),
       error: () => this.dangerToast()
     });
+  }
+
+  ngOnDestroy(): void {
+    this.userService.userSubject.unsubscribe();
   }
 
   get name() { return this.userForm.get('name'); }
@@ -135,4 +138,5 @@ export class HomeComponent implements OnInit {
     this.userForm.value.subjects = [];
     this.userForm.value.subjects.push(subjectsChecked);
   }
+
 }
