@@ -36,6 +36,9 @@ form {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.36);
     border-radius: 5px;
     background: #f9f9f9;
+    max-width: 1024px;
+    margin: auto;
+    padding: 20px;
 }
 
 .highcontrast form,
@@ -46,12 +49,6 @@ form {
 
 .header {
     color: rgba(0, 0, 0, 0.7);
-}
-
-table,
-td,
-th {
-    padding: 5px;
 }
 
 .form-horizontal .form-group {
