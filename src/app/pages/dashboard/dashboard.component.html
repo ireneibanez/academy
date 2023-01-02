@@ -1,3 +1,4 @@
+
 <div class="table-container">
     <table id="property" title="Properties">
         <tr>
@@ -11,6 +12,10 @@
             </td>
         </tr>
     </table>
+</div>
+
+<div class="formtitle">
+    <span>Registro de usuarios</span>
 </div>
 
 <div class="control-section">
@@ -29,8 +34,7 @@
                         <e-column field="email" headerText="E-mail"></e-column>
                         <e-column field="date" headerText="Fecha de comienzo" editType='datepickeredit'
                             [edit]='dpParams' format="dd-MM-yy"></e-column>
-                        <e-column field="subjects" headerText="Asignaturas" type='string'
-                            [edit]='dsParams'></e-column>
+                        <e-column field="subjects" headerText="Asignaturas" type='string' [edit]='dsParams'></e-column>
                     </e-columns>
                 </ejs-grid>
             </div>
@@ -47,8 +51,7 @@
                     <e-column field="email" headerText="E-mail"></e-column>
                     <e-column field="date" headerText="Fecha de comienzo" editType='datepickeredit' [edit]='dpParams'
                         format="dd-MM-yy"></e-column>
-                    <e-column field="subjects" headerText="Asignaturas" type='string'
-                        [edit]='dsParams'></e-column>
+                    <e-column field="subjects" headerText="Asignaturas" type='string' [edit]='dsParams'></e-column>
                 </e-columns>
             </ejs-grid>
         </div>

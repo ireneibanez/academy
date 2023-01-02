@@ -70,7 +70,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.data = this.userService.getUsersRegisteredInfo();
     this.editSettings = { allowEditing: true, allowAdding: true, allowDeleting: true, mode: 'Dialog' };
-    this.toolbar = ['Add', 'Edit', 'Delete', 'Update', 'Cancel', 'Search'];
+    this.toolbar = ['Add', 'Edit', 'Delete', 'Search'];
     this.orderidrules = { required: true, number: true };
     this.customeridrules = { required: true };
     this.rowMode = 'Vertical';
@@ -110,7 +110,8 @@ export class DashboardComponent implements OnInit {
     if ((args.requestType === 'beginEdit' || args.requestType === 'add')) {
       const dialog = args.dialog;
       const name = 'Nombre';
-      dialog.showCloseIcon = true;
+      dialog.showCloseIcon = false;
+      console.log('dialog', dialog)
       dialog.height = 400;
       dialog.header = args.requestType === 'beginEdit' ? 'Editar usuario: ' + args.rowData['name'] : this.redirectToHome();
     }

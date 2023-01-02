@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { DatePickerModule, MaskedDateTimeService } from '@syncfusion/ej2-angular-calendars';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
+import { ToastModule } from '@syncfusion/ej2-angular-notifications';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
     DatePickerModule,
     CheckBoxModule,
     GridModule,
-    DropDownListModule
+    DropDownListModule,
+    ToastModule
   ],
   providers: [MaskedDateTimeService, EditService, ToolbarService],
   bootstrap: [AppComponent]

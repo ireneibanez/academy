@@ -5,8 +5,17 @@
 
 .control-section {
     margin: auto;
-    // min-width: 300px;
     max-width: 1024px;
     display: flex;
     justify-content: center;
+}
+
+.formtitle {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 800;
+    color: purple;
 }

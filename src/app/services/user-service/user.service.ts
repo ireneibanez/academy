@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { User } from "src/app/shared/models/user.model";
 
 @Injectable({
@@ -9,6 +9,7 @@ import { User } from "src/app/shared/models/user.model";
 
 export class UserService {
 
+  public userSubject: Subject<User> = new Subject();
   private usersRegistered: User[] = [
     {
       name: 'María',
@@ -60,13 +61,11 @@ export class UserService {
 
   setNewUser(user: User): void {
     this.usersRegistered.push(user);
-    console.log('users en el servicio', this.usersRegistered)
+    this.userSubject.next(user);
   }
 
   setGender(name: string): Observable<any> {
     return this.http.get('https://api.genderize.io?name=' + `${name}`)
   }
-
-
 
 }
