@@ -1,36 +1,43 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
-import { GridModule, PagerModule } from '@syncfusion/ej2-angular-grids';
+import { EditService, ToolbarService, GridModule, PagerModule } from '@syncfusion/ej2-angular-grids';
 import { SharedModule } from './shared/shared.module';
 import { ButtonModule, CheckBoxModule } from '@syncfusion/ej2-angular-buttons';
 import { CommonModule } from '@angular/common';
-import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
-import { MultiSelectModule } from '@syncfusion/ej2-angular-dropdowns';
+import { DatePickerModule, MaskedDateTimeService } from '@syncfusion/ej2-angular-calendars';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
+import { ToastModule } from '@syncfusion/ej2-angular-notifications';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
-    FormsModule, 
-    ReactiveFormsModule, 
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
+    HttpClientModule,
     SharedModule,
-    GridModule, 
+    GridModule,
     PagerModule,
     ButtonModule,
     DatePickerModule,
     CheckBoxModule,
-    MultiSelectModule  
+    GridModule,
+    DropDownListModule,
+    ToastModule
   ],
-  providers: [],
+  providers: [MaskedDateTimeService, EditService, ToolbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

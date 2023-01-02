@@ -1,0 +1,41 @@
+<div class="table-container">
+    <table id="property" title="Properties">
+        <tr>
+            <td>
+                <div>Cambiar vista horizontal/vertical</div>
+            </td>
+            <td>
+                <div id='typeddl'>
+                    <ejs-checkbox #checkbox (change)="changeHandler($event)" checked="true"></ejs-checkbox>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="formtitle">
+    <span>Registro de usuarios</span>
+</div>
+
+<div class="grid-container">
+    <div class="e-adaptive-demo e-bigger">
+        <div class="e-mobile-layout">
+            <div class="e-mobile-content">
+                <ejs-grid #adaptive id="adaptivebrowser" [dataSource]='data' enableAdaptiveUI='true' height='100%'
+                    allowPaging='true' allowFiltering='true' allowSorting='true' [editSettings]='editSettings'
+                    [filterSettings]='filterSettings' [toolbar]='toolbar' (load)='onLoad()'>
+                    <e-columns>
+                        <e-column field="name" headerText="Nombre"></e-column>
+                        <e-column field="surname" headerText="Apellidos"></e-column>
+                        <e-column field="gender" headerText="Género" editType='dropdownedit'
+                            [edit]='genderParams'></e-column>
+                        <e-column field="email" headerText="E-mail"></e-column>
+                        <e-column field="date" headerText="Fecha de comienzo" editType='datepickeredit'
+                            [edit]='dpParams' format="dd-MM-yy"></e-column>
+                        <e-column field="subjects" headerText="Asignaturas" type='string' [edit]='dsParams'></e-column>
+                    </e-columns>
+                </ejs-grid>
+            </div>
+        </div>
+    </div>
+</div>
