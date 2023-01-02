@@ -1,6 +1,7 @@
 # Academy
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+Its components are based in Syncfusion library. More info: https://www.syncfusion.com/
 
 ## Development server
 
